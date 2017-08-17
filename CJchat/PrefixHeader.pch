@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  CJchat
+//
+//  Created by Chen_Jun on 2017/7/21.
+//  Copyright © 2017年 zwu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+
+#ifdef DEBUG
+#define CJLog(format, ...)    NSLog(format, ##__VA_ARGS__)
+#else
+#define CJLog(format, ...)
+#endif
+
+#import "CJConstants.h"
+#import "CJHeaderFile.h"
+
+
+
+
+#endif /* PrefixHeader_pch */

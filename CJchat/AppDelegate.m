@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CJChatViewController.h"
+#import "CJNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[UIApplication sharedApplication]setStatusBarHidden:NO];
+    
+    
+    self.window = [[UIWindow alloc] init];
+    self.window.frame = [UIScreen mainScreen].bounds;
+    
+    
+    
+    CJGroup *group = [[CJGroup alloc] init];
+    group.unReadCount = 2;
+    group.gName = @"马化腾";
+    group.lastMsgString = @"马云你等着!";
+    CJChatViewController *chatVc = [[CJChatViewController alloc] init];
+    chatVc.group                 = group;
+    
+    CJNavigationController *nav = [[CJNavigationController alloc] initWithRootViewController:chatVc];
+    self.window.rootViewController = nav;
+    
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
